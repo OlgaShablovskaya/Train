@@ -60,7 +60,7 @@ fun createTrain(passengersCount: Int): List<Wagon> { //формирование 
     return train
 }
 
-fun sendTrain(direction: Pair<String, String>?, train: List<Wagon>?)  //обработка ошибок
+fun sendTrain(direction: Pair<String, String>?, train: List<Wagon>?)  //обработка исключений
     if (direction == null || train == null) {
         println("Сначала необходимо создать направление и сформировать поезд.")
         return
