@@ -1,10 +1,10 @@
 import kotlin.random.Random
 fun main() {
-    var continueProgram = true
+    var continueProgram = true           //переменные
     var direction: Pair<String, String>? = null
     var passengersCount: Int = 0
     var train: List<Wagon>? = null
-    while (continueProgram) {
+    while (continueProgram) {   //цикл
         println("Выберите действие:")
         println("1. Создать направление")
         println("2. Продать билеты")
@@ -23,13 +23,13 @@ fun main() {
     }
 }
 
-fun createDirection(): Pair<String, String> {
+fun createDirection(): Pair<String, String> { // создание направления
     val cities = listOf("Москва", "Барнаул", "Санкт-Петербург", "Томск", "Нижний Новгород", "Кемерово", "Иркутск", "Красноярск", "Норильск", "Курган", "Екатеринбург", "Челябинск", "Тюмень", "Омск", "Сургут")
     val sourceCity = cities.random()
     var destinationCity = sourceCity
 
-    while (destinationCity == sourceCity) {
-        destinationCity = cities.random()
+    while (destinationCity == sourceCity) { 
+        destinationCity = cities.random() //рандомный выбор
     }
 
     println("Направление создано: $sourceCity - $destinationCity")
@@ -37,11 +37,11 @@ fun createDirection(): Pair<String, String> {
 }
 
 fun sellTickets(): Int {
-    val passengersCount = Random.nextInt(5, 202)
+    val passengersCount = Random.nextInt(5, 202) //выбор диапазона
     println("Продано билетов: $passengersCount")
     return passengersCount
 }
-fun createTrain(passengersCount: Int): List<Wagon> {
+fun createTrain(passengersCount: Int): List<Wagon> { //формирование поезда
     val train = mutableListOf<Wagon>()
     var passengersLeft = passengersCount
 
@@ -60,13 +60,13 @@ fun createTrain(passengersCount: Int): List<Wagon> {
     return train
 }
 
-fun sendTrain(direction: Pair<String, String>?, train: List<Wagon>?) {
+fun sendTrain(direction: Pair<String, String>?, train: List<Wagon>?)  //обработка ошибок
     if (direction == null || train == null) {
         println("Сначала необходимо создать направление и сформировать поезд.")
         return
     }
 
-    println("Поезд отправлен по направлению: ${direction.first} - ${direction.second}")
+    println("Поезд отправлен по направлению: ${direction.first} - ${direction.second}") // результат выбора
     println("Состав поезда:")
     train.forEachIndexed { index, wagon ->
         println("Вагон ${index + 1}: вместимость - ${wagon.capacity}, пассажиров - ${wagon.passengers}")
