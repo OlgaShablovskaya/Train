@@ -4,7 +4,7 @@ fun main() {
     var direction: Pair<String, String>? = null
     var passengersCount: Int = 0
     var train: List<Wagon>? = null
-    while (continueProgram) {   //цикл
+    while (continueProgram) {   //цикл с выбором действий
         println("Выберите действие:")
         println("1. Создать направление")
         println("2. Продать билеты")
@@ -37,11 +37,11 @@ fun createDirection(): Pair<String, String> { // создание направл
 }
 
 fun sellTickets(): Int {
-    val passengersCount = Random.nextInt(5, 202) //выбор диапазона
+    val passengersCount = Random.nextInt(5, 202) //выбор диапазона проданных билетов
     println("Продано билетов: $passengersCount")
     return passengersCount
 }
-fun createTrain(passengersCount: Int): List<Wagon> { //формирование поезда
+fun createTrain(passengersCount: Int): List<Wagon> { //формирование поезда, выбор кол-ва вагонов
     val train = mutableListOf<Wagon>()
     var passengersLeft = passengersCount
 
